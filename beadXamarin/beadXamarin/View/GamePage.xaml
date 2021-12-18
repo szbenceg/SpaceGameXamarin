@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:view="clr-namespace:beadXamarin.View"
+             xmlns:controls="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+             x:Class="beadXamarin.View.GamePage"
+             Title="Játék">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+
+        <Grid Grid.Row="2">
+            <AbsoluteLayout BindableLayout.ItemsSource="{Binding Fields}">
+
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <BoxView Color="Green" WidthRequest="{Binding Width}" HeightRequest="{Binding Height}" TranslationX="{Binding PositionX}" TranslationY="{Binding PositionY}"></BoxView>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+
+            </AbsoluteLayout>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Button Text="Left" WidthRequest="10" HeightRequest="50" Command="{Binding LeftKeyDown}"   />
+            </Grid>
+            <Grid Grid.Column="1">
+                <Button Text="Pause" WidthRequest="10" HeightRequest="50" Command="{Binding PKeyDown}"   />
+            </Grid>
+            <Grid Grid.Column="2">
+                <Button Text="Load Game" WidthRequest="10" HeightRequest="50" Command="{Binding LoadGameButton}"   />
+            </Grid>
+            <Grid Grid.Column="3">
+                <Button Text="Save Game" WidthRequest="10" HeightRequest="50" Command="{Binding SaveGamePressed}"   />
+            </Grid>
+            <Grid Grid.Column="4">
+                <Button Text="New Game" WidthRequest="10" HeightRequest="50" Command="{Binding NewGameButtonPressed}"   />
+            </Grid>
+            <Grid Grid.Column="5">
+                <Button Text="Right" WidthRequest="10" HeightRequest="50" Command="{Binding RightKeyDown}"   />
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Label Text="{Binding LifeNumber}" HorizontalOptions="Center" TextDecorations="None"  />
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Label Text="{Binding GameTime}" HorizontalOptions="Center" TextDecorations="None"  />
+            </Grid>
+        </Grid>
+    </Grid>
+
+
+</ContentPage>
